@@ -60,7 +60,21 @@ Procédure :
 </beans>
  changement {PizzeriaAdminConsoleApp}
 
- 
+
 --> $ javac ...
 --> $ java ....
 --> $ (affiche la liste du menu)
+
+--> Commit ~ eb35cf8..08bdb62 
+Faire attention comment appel le Autowired...
+Pour eviter que l'objet est NULL alors on utilise @PostConstruct
+
+
+La notion du de Spring permet au final d'avoir une unique instance. 
+C'est l'instance qui définit le Singleton. 
+
+
+probleme de connect :
+--> entity manager redéclarer
+--> Persitence.xml mal placé
+--> @Component
