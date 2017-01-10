@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="webjars/bootstrap/3.2.0/css/bootstrap.css">
+<script src="webjars/jquery/1.11.1/jquery.js"></script>
+<meta charset="ISO-8859-1">
+<title>testWebJars</title>
+</head>
+<body>
+	<div>
+		<script>
+
+var service = 'http://localhost:8080/';
+
+$(document).ready(function(){
+
+    jQuery.support.cors = true;
+
+    $.ajax(
+    {
+        type: "GET",
+        url: service + 'pizza/list',
+        data: "{}",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        cache: false,
+        success: function (data) {
+
+        var trHTML = '';
+                
+        $.each(data, function (i, item) {
+            trHTML += '<tr><td>' + data[i].id + '</td><td>' + data[i].code + '</td></tr>';
+        });
+        
+        $('#location').append(trHTML);
+        
+        },
+        
+        error: function (msg) {
+            
+            alert(msg.responseText);
+        }
+    });
+})
+
+</script>
+
+	</div>
+</body>
+</html>
